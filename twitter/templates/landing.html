@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/web_view.css"/>
+</head>
+<body>
+    <p>Use the form below to predict which user is more likely to say a given tweet</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Twitter User A:</label>
+        <select name="upsert_author">
+            <option value="elonmusk" selected="true">@elonmusk</option>
+            <option value="justinbieber">@justinbieber</option>
+            <option value="s2t2">@s2t2</option>
+        </select>
+        <br>
+
+        <label>Twitter User B:</label>
+        <select name="screen_name_a">
+            <option value="elonmusk" selected="true">@elonmusk</option>
+            <option value="justinbieber">@justinbieber</option>
+            <option value="s2t2">@s2t2</option>
+        </select>
+        <br>
+        </form>
+
+
+
+{% for x in authors %}
+<h1>{{x.id}}</h1>
+<h2>{{x.name}}</h2>
+{% endfor %}
+<br>
+{% for x in tweets %}
+<h1>{{x.id}}</h1>
+<h2>{{x.author}}</h2>
+<h3>{{x.body}}</h3>
+{% endfor %}
+</body>
+</html>
